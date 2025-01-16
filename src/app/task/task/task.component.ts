@@ -3,9 +3,7 @@ import { TaskService } from '../service/task.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { Task } from '../task';
-import { concatMap, groupBy, mergeMap, of, toArray, zip } from 'rxjs';
-import { TaskGroup } from './taskGroup';
+import { TaskGroup } from '../taskGroup';
 
 @Component({
   selector: 'app-task',

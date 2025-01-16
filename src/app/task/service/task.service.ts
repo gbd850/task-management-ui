@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Task } from '../task';
-import { catchError, of } from 'rxjs';
 import { TaskRequest } from '../taskRequest';
-import { TaskGroup } from '../task/taskGroup';
+import { TaskGroup } from '../taskGroup';
 
 @Injectable({
   providedIn: 'root'
