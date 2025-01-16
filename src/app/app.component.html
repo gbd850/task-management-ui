@@ -12,8 +12,8 @@
         @for (task of tasks; track $index) {
         <tr>
           <td class="p-4">
-              <input *ngIf="task.isResolved == true" checked type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
-              <input *ngIf="task.isResolved == false" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+              <input *ngIf="task.isResolved == true" (click)="resolveTask(task.id, false)" checked type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+              <input *ngIf="task.isResolved == false" (click)="resolveTask(task.id, true)" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
           </td>
           <td *ngIf="task.isResolved == true" class="p-4 line-through text-gray-500">{{ task.name }}</td>
           <td *ngIf="task.isResolved == false" class="p-4">{{ task.name }}</td>

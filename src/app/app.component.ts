@@ -26,5 +26,11 @@ export class AppComponent implements OnInit {
     });
   }
 
+  resolveTask(id: number, resolve: boolean) {
+    this.taskService.resolveTask(id, resolve).subscribe(() => {
+      this.ngOnInit()
+    })
+  }
+
   title = 'task-management-ui';
 }
