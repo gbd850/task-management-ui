@@ -1,5 +1,5 @@
-<div class="h-[100vh]">
-    <div class="relative flex flex-col w-full h-full text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+<div class="h-[100vh] overflow-x-hidden">
+    <div class="relative flex flex-col w-full h-full text-gray-700 bg-white rounded-lg bg-clip-border">
         <table class="w-full text-left table-auto min-w-max text-slate-800">
         <thead>
             <tr class="text-slate-500 border-b border-slate-300 bg-slate-50">
@@ -10,6 +10,13 @@
             </tr>
         </thead>
             <tbody class="text-lg font-medium">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="flex items-center justify-end pt-4 font-normal">
+                        <button class="btn btn-primary bg-green-600 px-5 py-3 rounded-lg text-white" [routerLink]="['addcategory']">Add category</button>
+                    </td>
+                </tr>
                 @for (taskGroup of tasks; track $index) {
                     <tr>
                         <td class="p-4">
@@ -44,5 +51,8 @@
                 }
             </tbody>
         </table>
+        <div class="flex items-center justify-between w-full p-4 text-lg">
+            <button class="btn btn-primary bg-green-600 px-5 py-3 rounded-lg text-white" [routerLink]="['addtask']">Add task</button>
+        </div>
     </div>
 </div>

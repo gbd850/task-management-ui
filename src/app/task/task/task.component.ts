@@ -29,9 +29,12 @@ export class TaskComponent implements OnInit {
   }
 
   resolveTask(id: number, resolve: boolean) {
-    this.taskService.resolveTask(id, resolve).subscribe(() => {
+    this.taskService.resolveTask(id, resolve).subscribe({
+      next: () => {
       this.ngOnInit()
-    })
+    }, 
+    error: () => alert("Oops! Something went wrong")
+  });
   }
 
   deleteTask(id: number) {

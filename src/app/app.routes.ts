@@ -5,6 +5,7 @@ import { TaskComponent } from './task/task/task.component';
 
 export const routes: Routes = [
   { path: '', component: TaskComponent },
+  { path: 'addtask', component: TaskDetailsComponent },
   { path: 'edittask/:id', component: TaskDetailsComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Task } from '../task';
 import { TaskRequest } from '../taskRequest';
 import { TaskGroup } from '../taskGroup';
+import { Category } from '../category';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class TaskService {
     return this.http.get<TaskGroup[]>('http://localhost:8080/api/task');
   }
 
+  getCategoryList() {
+    return this.http.get<Category[]>('http://localhost:8080/api/task/category');
+  }
+
   getTaskById(id: number) {
     return this.http.get<Task>('http://localhost:8080/api/task/' + String(id));
   }
@@ -22,6 +27,14 @@ export class TaskService {
   resolveTask(id: number, resolve: boolean) {
     let body = { isResolved: resolve } as TaskRequest;
     return this.http.patch<Task>('http://localhost:8080/api/task/' + String(id), body);
+  }
+
+  addTask(task: TaskRequest) {
+    return this.http.post<Task>('http://localhost:8080/api/task', task);
+  }
+
+  editTask(taskId: number, task: TaskRequest) {
+    return this.http.patch<Task>('http://localhost:8080/api/task/' + String(taskId), task);
   }
 
   deleteTask(id: number) {

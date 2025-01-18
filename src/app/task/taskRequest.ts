@@ -1,4 +1,5 @@
 export interface TaskRequest {
-    name: string;
+    name: string | null;
+    categoryName: string | null;
     isResolved: boolean;
   }

@@ -1,1 +1,29 @@
-<p>task-details | {{task.id}} | {{task.name}} | {{task.categoryName}} | works!</p>
+<div class="w-full max-w-lg m-auto mt-40">
+    <form (ngSubmit)="process()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+            <input required type="text" name="name" placeholder="Name" [(ngModel)]="task.name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </div>
+        <div class="mb-6">
+            <select name="categoryName" [(ngModel)]="task.categoryName"
+                class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <option value="">
+                    None
+                </option>
+                @for (category of categories; track $index) {
+                <option [value]="category.name">
+                    {{ category.name }}
+                </option>
+                }
+            </select>
+        </div>
+        <div class="flex items-center justify-between">
+            <input type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                value="Add" />
+            <button [routerLink]="['']" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>
