@@ -4,6 +4,7 @@ import { Task } from '../task';
 import { TaskRequest } from '../taskRequest';
 import { TaskGroup } from '../taskGroup';
 import { Category } from '../category';
+import { CategoryRequest } from '../categoryRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,9 @@ export class TaskService {
 
   deleteTask(id: number) {
     return this.http.delete('http://localhost:8080/api/task/' + String(id))
+  }
+
+  addCategory(category: CategoryRequest) {
+    return this.http.post<Category>('http://localhost:8080/api/task/category', category);
   }
 }
